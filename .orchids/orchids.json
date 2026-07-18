@@ -1,0 +1,7 @@
+{
+  "startupCommands": [
+    "bun server.ts"
+  ],
+  "projectId": "5117e6b5-4868-4787-8af6-000aaad7317e",
+  "templateId": "any"
+}
