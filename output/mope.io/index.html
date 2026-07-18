@@ -32,7 +32,19 @@
 </style>
 
 <head>
-<base href="/mope.io/">
+<script>
+  // Dynamic base URL: auto-detect deployment context
+  (function() {
+    var path = window.location.pathname;
+    // If served from a subdirectory (like GitHub Pages), use that as the base
+    if (path && path !== '/' && !path.endsWith('/')) {
+      path = path.substring(0, path.lastIndexOf('/') + 1);
+    }
+    var base = document.createElement('base');
+    base.href = path || '/';
+    document.head.appendChild(base);
+  })();
+</script>
   <title>mope.io</title>
   <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable  =no" /> -->
   <meta name="viewport" content="minimal-ui, user-scalable=no, initial-scale=1, maximum-scale=1, width=device-width"/>
@@ -619,15 +631,12 @@
 
 </body>
 <script>
-  // Set WebSocket proxy host for Vercel deployment (must be before $config pre-definition)
-  window.__WS_PROXY_HOST = '3000-df6764b5-8a52-4e3b-9ab8-4792abe4d9be.orchids.cloud';
-  // Set WebSocket proxy host for Vercel deployment (must be before $config pre-definition)
-  window.__WS_PROXY_HOST = '3000-df6764b5-8a52-4e3b-9ab8-4792abe4d9be.orchids.cloud';
-  // Set WebSocket proxy host for Vercel deployment (must be before $config pre-definition)
-  window.__WS_PROXY_HOST = '3000-df6764b5-8a52-4e3b-9ab8-4792abe4d9be.orchids.cloud';
+  // Set WebSocket proxy host dynamically (auto-detects deployment context)
+  window.__WS_PROXY_HOST = window.location.host;
   // Define $config with proxy URLs BEFORE client.js loads
   // Make it read-only so client.js's $config={...} assignment is silently ignored.
   (function() {
+    var wsScheme = window.location.protocol === 'https:' ? 'wss://' : 'ws://';
     var wsHost = (typeof window.__WS_PROXY_HOST !== 'undefined') ? window.__WS_PROXY_HOST : window.location.host;
     var difficulty = (function() { try { return localStorage.getItem('difficulty') || 'normal'; } catch(e) { return 'normal'; } })();
     var difficultyParam = '?difficulty=' + encodeURIComponent(difficulty);
@@ -650,25 +659,25 @@
       mapWidth: 4000,
       mapHeight: 4000,
       gameServers: [
-        {id:'prod-lnd-us-ny-1',name:'New York 1',url:wsHost+'/ws/8080'+difficultyParam,region:'New York, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-da-1',name:'Dallas 1',url:wsHost+'/ws/8081'+difficultyParam,region:'Dallas, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-la-1',name:'Los Angeles 1',url:wsHost+'/ws/8082'+difficultyParam,region:'Los Angeles, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-br-sp-1',name:'Sao Paulo 1',url:wsHost+'/ws/8083'+difficultyParam,region:'Sao Paulo, Brazil',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-de-ff-1',name:'Frankfurt 1',url:wsHost+'/ws/8084'+difficultyParam,region:'Frankfurt, Germany',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-fr-pr-1',name:'Paris 1',url:wsHost+'/ws/8085'+difficultyParam,region:'Paris, France',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-sw-sh-1',name:'Stockholm 1',url:wsHost+'/ws/8086'+difficultyParam,region:'Stockholm, Sweden',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-sg-sg-1',name:'Singapore 1',url:wsHost+'/ws/8087'+difficultyParam,region:'Singapore, Singapore',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-au-sd-1',name:'Sydney 1',url:wsHost+'/ws/8088'+difficultyParam,region:'Sydney, Australia',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-ch-1',name:'Chicago 1',url:wsHost+'/ws/8089'+difficultyParam,region:'Chicago, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-se-1',name:'Seattle 1',url:wsHost+'/ws/8090'+difficultyParam,region:'Seattle, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-nh-1',name:'New Hampshire 1',url:wsHost+'/ws/8091'+difficultyParam,region:'New Hampshire, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-mi-1',name:'Miami 1',url:wsHost+'/ws/8092'+difficultyParam,region:'Miami, USA',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-nl-am-1',name:'Amsterdam 1',url:wsHost+'/ws/8093'+difficultyParam,region:'Amsterdam, Netherlands',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-gb-ld-1',name:'London 1',url:wsHost+'/ws/8094'+difficultyParam,region:'London, UK',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-jp-tk-1',name:'Tokyo 1',url:wsHost+'/ws/8095'+difficultyParam,region:'Tokyo, Japan',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-is-1',name:'Iceland 1',url:wsHost+'/ws/8096'+difficultyParam,region:'Iceland',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-cn-1',name:'China 1',url:wsHost+'/ws/8097'+difficultyParam,region:'China',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-in-1',name:'India 1',url:wsHost+'/ws/8098'+difficultyParam,region:'India',gm:0,maxPlayers:2000}
+        {id:'prod-lnd-us-ny-1',name:'New York 1',url:wsScheme+wsHost+'/ws/8080'+difficultyParam,region:'New York, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-da-1',name:'Dallas 1',url:wsScheme+wsHost+'/ws/8081'+difficultyParam,region:'Dallas, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-la-1',name:'Los Angeles 1',url:wsScheme+wsHost+'/ws/8082'+difficultyParam,region:'Los Angeles, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-br-sp-1',name:'Sao Paulo 1',url:wsScheme+wsHost+'/ws/8083'+difficultyParam,region:'Sao Paulo, Brazil',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-de-ff-1',name:'Frankfurt 1',url:wsScheme+wsHost+'/ws/8084'+difficultyParam,region:'Frankfurt, Germany',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-fr-pr-1',name:'Paris 1',url:wsScheme+wsHost+'/ws/8085'+difficultyParam,region:'Paris, France',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-sw-sh-1',name:'Stockholm 1',url:wsScheme+wsHost+'/ws/8086'+difficultyParam,region:'Stockholm, Sweden',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-sg-sg-1',name:'Singapore 1',url:wsScheme+wsHost+'/ws/8087'+difficultyParam,region:'Singapore, Singapore',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-au-sd-1',name:'Sydney 1',url:wsScheme+wsHost+'/ws/8088'+difficultyParam,region:'Sydney, Australia',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-ch-1',name:'Chicago 1',url:wsScheme+wsHost+'/ws/8089'+difficultyParam,region:'Chicago, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-se-1',name:'Seattle 1',url:wsScheme+wsHost+'/ws/8090'+difficultyParam,region:'Seattle, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-nh-1',name:'New Hampshire 1',url:wsScheme+wsHost+'/ws/8091'+difficultyParam,region:'New Hampshire, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-mi-1',name:'Miami 1',url:wsScheme+wsHost+'/ws/8092'+difficultyParam,region:'Miami, USA',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-nl-am-1',name:'Amsterdam 1',url:wsScheme+wsHost+'/ws/8093'+difficultyParam,region:'Amsterdam, Netherlands',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-gb-ld-1',name:'London 1',url:wsScheme+wsHost+'/ws/8094'+difficultyParam,region:'London, UK',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-jp-tk-1',name:'Tokyo 1',url:wsScheme+wsHost+'/ws/8095'+difficultyParam,region:'Tokyo, Japan',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-is-1',name:'Iceland 1',url:wsScheme+wsHost+'/ws/8096'+difficultyParam,region:'Iceland',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-cn-1',name:'China 1',url:wsScheme+wsHost+'/ws/8097'+difficultyParam,region:'China',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-in-1',name:'India 1',url:wsScheme+wsHost+'/ws/8098'+difficultyParam,region:'India',gm:0,maxPlayers:2000}
       ]
     };
     try {
