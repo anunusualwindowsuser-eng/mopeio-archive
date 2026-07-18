@@ -119,14 +119,13 @@
         // Build proxied server URLs using the current page's hostname
         var host = (typeof window.__WS_PROXY_HOST !== 'undefined') ? window.__WS_PROXY_HOST : window.location.host;
         var wsScheme = window.location.protocol === "https:" ? "wss://" : "ws://";
-        var difficulty = localStorage.getItem("difficulty") || "normal";
         // Map each server port to a proxied WebSocket URL through the static server
         var portIndex = 8080;
         var mappedServers = servers.map(function(s) {
           var entry = {
             id: s.id,
             name: s.name,
-            url: wsScheme + host + "/ws/" + portIndex + "?difficulty=" + difficulty, // proxied through this server
+            url: wsScheme + host + "/ws/" + portIndex,
             region: s.region,
             gm: s.gm || 0,
             maxPlayers: s.maxPlayers || 2000,
@@ -139,7 +138,7 @@
         Object.defineProperty(self, "responseText", {
           get: function() {
             return JSON.stringify(mappedServers.map(function(s) {
-              return { id: s.id, name: s.name, url: s.url, playersCount: 0, maxPlayers: s.maxPlayers || 2000 };
+              return { id: s.id, name: s.name, url: s.url, playersCount: Math.floor(Math.random() * 500) + 50, maxPlayers: s.maxPlayers || 2000 };
             }));
           }
         });
@@ -169,13 +168,12 @@
           var servers = (typeof $config !== "undefined" && $config.gameServers) || [];
           var host = (typeof window.__WS_PROXY_HOST !== 'undefined') ? window.__WS_PROXY_HOST : window.location.host;
           var wsScheme = window.location.protocol === "https:" ? "wss://" : "ws://";
-          var difficulty = localStorage.getItem("difficulty") || "normal";
           var portIndex = 8080;
           var mappedServers = servers.map(function(s) {
             var entry = {
               id: s.id,
               name: s.name,
-              url: wsScheme + host + "/ws/" + portIndex + "?difficulty=" + difficulty,
+              url: wsScheme + host + "/ws/" + portIndex,
               region: s.region,
               gm: s.gm || 0,
               maxPlayers: s.maxPlayers || 2000,
@@ -184,7 +182,7 @@
             return entry;
           });
           return Promise.resolve(new Response(JSON.stringify(mappedServers.map(function(s) {
-            return { id: s.id, name: s.name, url: s.url, playersCount: 0, maxPlayers: s.maxPlayers || 2000 };
+            return { id: s.id, name: s.name, url: s.url, playersCount: Math.floor(Math.random() * 500) + 50, maxPlayers: s.maxPlayers || 2000 };
           })), { status: 200, headers: { "Content-Type": "application/json" } }));
         }
         return origFetch.call(window, input, init);
