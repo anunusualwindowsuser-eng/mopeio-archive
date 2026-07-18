@@ -1,0 +1,35 @@
+{
+  "test@test.com": {
+    "email": "test@test.com",
+    "password": "test123",
+    "name": "TestUser",
+    "coins": 1000,
+    "gems": 0,
+    "purchases": [],
+    "wardrobe": {},
+    "created": 1784335296345,
+    "lastLogin": 1784335296354
+  },
+  "emerytillberg0@gmail.com": {
+    "email": "emerytillberg0@gmail.com",
+    "password": "dev123",
+    "name": "DevUser",
+    "coins": 1000,
+    "gems": 0,
+    "purchases": [],
+    "wardrobe": {},
+    "created": 1784335343993,
+    "lastLogin": 1784335352084
+  },
+  "test2@test.com": {
+    "email": "test2@test.com",
+    "password": "test123",
+    "name": "test2@test.com",
+    "coins": 1000,
+    "gems": 0,
+    "purchases": [],
+    "wardrobe": {},
+    "created": 1784342962574,
+    "lastLogin": 1784342962574
+  }
+}
