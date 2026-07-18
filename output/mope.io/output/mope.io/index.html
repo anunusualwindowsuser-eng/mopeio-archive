@@ -1,0 +1,793 @@
+<!DOCTYPE html>
+<html lang="en">
+<!-- Wayback Machine scripts removed for local serving -->
+<style type="text/css">
+  body {
+    background-color: #06af22;
+  }
+
+  #interfacev2 {
+    position: fixed;
+  }
+
+  hr {
+    height: 1px;
+    border: 0px;
+    background: #ffffff;
+  }
+
+  #turnstile {
+    position: fixed;
+    left: 0;
+    top: 0;
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    justify-content: center;
+    background-color: #000000a0;
+    z-index: 10000;
+  }
+</style>
+
+<head>
+<base href="/mope.io/">
+  <title>mope.io</title>
+  <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable  =no" /> -->
+  <meta name="viewport" content="minimal-ui, user-scalable=no, initial-scale=1, maximum-scale=1, width=device-width"/>
+  <meta name="description" content="Survive and climb the food chain in mopeio, the hit browser game!">
+  <meta name="keywords" content="mope, mope.io, mopeio,io games, .io, spaceships, browser game, html game, html5 game, agario, diepio, flash game, space, multiplayer">
+  <meta http-equiv="content-type" content="text/html; charset=utf-8">
+  <meta name="google-site-verification" content="HjdDaF_uw12IxXRm3hOS03tqv9QW8Lj5b74mlJGsRz0"/>
+  <meta property="og:image" content="img/share_banner.jpg">
+  <meta property="og:image:type" content="image/jpg">
+  <meta property="og:image:width" content="1263">
+  <meta property="og:image:height" content="707">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="robots" content="index, follow">
+  <meta name="revisit-after" content="3 days">
+  <meta name="googlebot" content="all">
+  <meta name="twitter:card" content="summary_large_image">
+
+  <link rel="stylesheet" href="main_nerged.css">
+
+  <!-- AdinPlay -->
+ <!-- <script>
+    window.aiptag = window.aiptag || { cmd: [] };
+    aiptag.cmd.display = aiptag.cmd.display || [];
+    aiptag.cmd.player = aiptag.cmd.player || [];
+    //CMP tool settings
+    aiptag.cmp = {
+      show: true,
+      position: "centered",  //centered, bottom
+      button: false,
+      buttonText: "Privacy settings",
+      buttonPosition: "bottom-left" //bottom-left, bottom-right, bottom-center, top-left, top-right
+    }
+    aiptag.cmd.player.push(function () {
+      aiptag.adplayer = new aipPlayer({
+        AIP_REWARDEDNOTGRANTED: function (state) {
+          //This event is fired when a rewarded ad is:
+          //timed out, empty, unsupported or closed by the user.
+          //don't grant the reward here
+          const evt = new CustomEvent("aip-reward-status", { state: state });
+          window.dispatchEvent(evt);
+        },
+        AIP_REWARDEDGRANTED: function () {
+          const evt = new CustomEvent("aip-reward-granted");
+          window.dispatchEvent(evt);
+        },
+        AD_WIDTH: 960,
+        AD_HEIGHT: 540,
+        AD_DISPLAY: 'default', //default, fullscreen, fill, center, modal-center
+        LOADING_TEXT: 'loading advertisement',
+        PREROLL_ELEM: function () { return document.getElementById('eg-video-player') },
+        AIP_COMPLETE: function (state) {
+          console.log("Video ad finished", window.onVideoAdFinished)
+          window.onVideoAdFinished();
+        }
+      });
+    });
+    function show_videoad() {
+      //check if the adslib is loaded correctly or blocked by adblockers etc.
+      if (typeof aiptag.adplayer !== 'undefined') {
+        aiptag.cmd.player.push(function () { aiptag.adplayer.startVideoAd(); });
+      } else {
+        //Adlib didnt load this could be due to an adblocker, timeout etc.
+        //Please add your script here that starts the content, this usually is the same script as added in AIP_COMPLETE.
+        //alert("Ad Could not be loaded, load your content here");
+        aiptag.adplayer.aipConfig.AIP_COMPLETE();
+      }
+ } </script>-->
+
+  
+   	<script>window.nitroAds=window.nitroAds||{createAd:function(){return new Promise(e=>{window.nitroAds.queue.push(["createAd",arguments,e])})},addUserToken:function(){window.nitroAds.queue.push(["addUserToken",arguments])},queue:[]};</script>
+	
+  
+  <script>
+    function isWithinCrazyGames() {
+      const urlParams = new URLSearchParams(self.location.search);
+
+      return urlParams.has("crazygames");
+    }
+
+    if (!isWithinCrazyGames()) {
+      /*var head = document.getElementsByTagName('head')[0];
+      var js = document.createElement("script");
+      js.src = "//web.archive.org/web/20251227094228/https://api.adinplay.com/libs/aiptag/pub/DIE/mope.io/tag.min.js"
+      js.type = "text/javascript";
+      js.async = true
+      if (!window.ReactNativeWebView) head.appendChild(js);*/
+    } 
+  </script>
+
+
+  <!-- CSS -->
+  <!-- <link rel="stylesheet" href="main_nerged.css?v=live.257" /> -->
+  <link rel="shortcut icon" type="image/x-icon" href="favicon.ico"/>
+
+  <!-- Jquery -->
+  <script src="jquery_3_3_1.js"></script>
+  
+
+  <!-- Turnstile -->
+  
+
+
+
+  <!-- Begin comScore Tag -->
+  <script>
+    var _comscore = _comscore || [];
+    _comscore.push({ c1: "2", c2: "22419751" });
+    (function () {
+      var s = document.createElement("script"), el = document.getElementsByTagName("script")[0]; s.async = true;
+      s.src = (document.location.protocol == "https:" ? "https://web.archive.org/web/20251227094228/https://sb" : "http://b") + ".scorecardresearch.com/beacon.js";
+      el.parentNode.insertBefore(s, el);
+    })();
+  </script>
+  <noscript>
+    <img src="https://web.archive.org/web/20251227094228im_/https://sb.scorecardresearch.com/p?c1=2&amp;c2=22419751&amp;cv=2.0&amp;cj=1"/>
+  </noscript>
+  <!-- End comScore Tag -->
+  
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag() { dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'UA-36494583-11', { cookie_flags: 'secure;samesite=none' });
+  </script>
+  <script data-cfasync="false" type="text/javascript">
+    //ONLY LOAD AD SCRIPTS IF NOT MOBILE APP
+    function getQueryParams(qs) {
+      qs = qs.split("+").join(" ");
+      var params = {},
+        tokens,
+        re = /[?&]?([^=]+)=([^&]*)/g;
+      while ((tokens = re.exec(qs))) {
+        params[decodeURIComponent(tokens[1])] = decodeURIComponent(tokens[2]);
+      }
+      return params;
+    }
+    var $_GET = getQueryParams(document.location.search);
+
+    //read link/ app flags
+    window.isMobileAppIOS = $_GET["mobileios"] > 0;
+    window.isMobileAppAndroid = $_GET["mobileAndroid"] > 0;
+    window.isMobileApp = window.isMobileAppIOS || window.isMobileAppAndroid;
+    window.SmartPhone = {
+      isAndroid: function () {
+        return navigator.userAgent.match(/Android/i);
+      },
+      isBlackBerry: function () {
+        return navigator.userAgent.match(/BlackBerry/i);
+      },
+      isIOS: function () {
+        return navigator.userAgent.match(/iPhone|iPad|iPod/i);
+      },
+      isOpera: function () {
+        return navigator.userAgent.match(/Opera Mini/i);
+      },
+      isWindows: function () {
+        return navigator.userAgent.match(/IEMobile/i) || navigator.userAgent.match(/WPDesktop/i);
+      },
+      isAny: function () {
+        return (SmartPhone.isAndroid() || SmartPhone.isBlackBerry() || SmartPhone.isIOS() || SmartPhone.isOpera() || SmartPhone.isWindows());
+      }
+    }
+    window.isMobileDevice = window.SmartPhone.isAny();
+    console.log("Using a mobile device? " + isMobileDevice);
+    if (!isMobileApp && location.href.indexOf("http") > -1) {
+      try {
+        function randomIntFromInterval(min, max) { // min and max included
+          return Math.floor(Math.random() * (max - min + 1) + min);
+        }
+      } catch (err) {
+      }
+    }
+
+    //<!-- FREESTAR .io PLACE THIS SECTION INSIDE OF YOUR HEAD TAGS -->
+    /*var freestar = freestar || {};
+    freestar.hitTime = Date.now();
+    freestar.queue = freestar.queue || [];
+    freestar.config = freestar.config || {};
+    freestar.debug = window.location.search.indexOf('fsdebug') === -1 ? false : true;
+
+    // Tag IDs set here, must match Tags served in the Body for proper setup
+    freestar.config.enabled_slots = [
+      "mope_300x250_336x280_top",
+      "mope_970x90_728x90_bottom"
+    ];
+
+    ! function(a, b) {
+      var c = b.getElementsByTagName("script")[0],
+        d = b.createElement("script"),
+        e = "https://web.archive.org/web/20251227094228/https://a.pub.network/mope-io";
+      e += freestar.debug ? "/qa/pubfig.min.js" : "/pubfig.min.js", d.async = !0, d.src = e, c.parentNode.insertBefore(d, c)
+    }(window, document);
+    */
+  </script>
+  <script src="adblockdet/ads.js"></script>
+</head>
+
+<body>
+
+
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://web.archive.org/web/20251227094228if_/https://www.googletagmanager.com/ns.html?id=GTM-N35BF44" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <!-- <link rel="stylesheet" href="ui_build/static/css/main.css" /> -->
+
+  <!--<script src="https://unpkg.com/react@17/umd/react.development.js" crossorigin></script>
+<script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js" crossorigin></script>
+<script src="../js/js_src/interfacev2/src/index.js"></script> -->
+
+  <!-- Hidden social buttons kept for compatibility (client.js references them) -->
+  <div id="loginButtons" style="display:none;">
+    <div class="container loginContainer">
+      <button id="googleLoginBtn" style="display:none;"></button>
+      <button id="facebookLoginBtn" style="display:none;"></button>
+      <button id="appleLoginBtn" style="display:none;"></button>
+      <button id="discordLoginBtn" style="display:none;"></button>
+    </div>
+  </div>
+  <div id="moneyRectBottomWrap">
+    <div id="moneyRectBottom">
+      <div id="mope-io_728x90">
+      </div>
+    </div>
+  </div>
+  <div class="endScreenOuter" style="display: none;">
+    <div class="endScreenInner">
+      <div class="endScreenInfoBlock">
+
+        <div class="title">
+          YOU WERE #<span class="endScreenResultRank"></span>
+        </div>
+
+        <div class="info-box">
+          <div class="killedBy">
+            <div class="label">Killed by:</div>
+            <div class="value"></div>
+          </div>
+          <div class="playTime">
+            <div class="label">Time alive:</div>
+            <div class="value"></div>
+          </div>
+          <div class="totalKills">
+            <div class="label">Total kills:</div>
+            <div class="value"></div>
+          </div>
+          <div class="maxXp">
+            <div class="label">Maximum XP:</div>
+            <div class="value"></div>
+          </div>
+          <div class="wins1v1">
+            <div class="label">1v1 Wins:</div>
+            <div class="value"></div>
+          </div>
+          <div>
+            <div class="label">Spawn XP:</div>
+            <div class="value" id="spawnXpLabel"></div>
+          </div>
+          <div class="twoColumns">
+            <div class="label">Earned coins:</div>
+            <div class="value" id="plusCoinsLabel"></div>
+          </div>
+          <!-- <p id="spawnXpLabel">
+                      </p>
+                      <div id=plusCoins title="Earned coins">
+                        <img src="shop/mopecoin.png" class="buycoin-img">
+                        <span id="plusCoinsLabel" class="coins">loading....</span>
+                      
+                      </div> -->
+        </div>
+      </div>
+      <div class="btnInnerDiv">
+
+        <button id="btnContinueEndScreen" class=" btn"> CONTINUE </button>
+      </div>
+    </div>
+  </div>
+  <div id="gameAreaWrapper">
+    <!--<a style="z-index:1000000;"><button id="testingButton">TEST: SHOW/HIDE MENU TO REFRESH ADS</button> </a> -->
+
+    <input id="chatinput" type="text" class="chat-input" placeholder="Chat here..." maxlength="35"/>
+    <canvas tabindex="1" id="gCanvas"></canvas>
+  </div>
+
+  <div id="startMenuWrapper">
+    <div id="xsollaStoreFrameWrapper">
+      <div id="xsollaStoreAndButton">
+        <!-- loading animation -->
+        <div class="loadingAnim_xsolla" id="loadingAnim_xsolla" style="display: none;">
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div id="xsollaStoreCloseButton"><img src="shop/close.png"></div>
+
+        <div id="xsollaStoreInnerDiv"></div>
+        <div class="xsollaStoreItems">
+
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- <div id="BETADIV" style="    position: relative;
+    top: 10px;
+    left: 16px;
+    background: red;
+    width: 211px;
+    padding: 5px;
+    border-radius: 8px;
+    overflow: hidden;
+    font-size: 10px;
+    color: white;
+    text-align: center;
+    border: 2px solid white;">
+      <strong>WARNING:</strong> MOPE BETA IS FOR TESTING PURPOSE ONLY. MOPE BETA CAN CRASH/RESTART/DISCONNECT/UPDATE
+      FREQUENTLY. ITS
+      NOT FOR PROLONGED GAMEPLAY.
+
+    </div> -->
+    <div id="updates" class="boxshadow">
+
+
+      <div style="
+    text-align: center;
+    position: relative;
+    padding: 10px;
+    z-index: 1;
+    width: 200px;
+    overflow-y: scroll;
+    font-size: 10px;
+    background-color: rgba(9, 153, 47, 0.52);
+    border-radius: 8px;
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;">
+
+        <div class="devhead" style=" color:#fff;
+    color: #fff;
+    margin: 0 auto;
+    background-color: #09992f;
+    padding: 3px;
+    font-size: 14px;transform:scale(1.2);    width: 155px;
+          ">UPDATES</div>
+      </div>
+      <div id="updatesDiv" style="border-radius: 0px;">
+        <h2>Loading updates, please be patient...</h2>
+      </div>
+      <div id="ytDiv">
+        <div style="margin-top: 20px;margin-bottom: 7px;text-align:center;">
+
+          <div class="devhead" style=" color:#fff;
+        margin: 0 auto;
+        width: 160px;
+        height: 14px;
+        background-color: #09992f;
+        padding: 3px;transform:scale(1.2);
+        margin-top: 10px; margin-bottom: 10px; font-size:14px;
+        ">Mope.io
+            Community</div>
+          <h2>
+            Tell us your ideas/bugs on discord:<br/>
+            <a href="https://web.archive.org/web/20251227094228/https://discord.com/invite/nQAVB9c">Discord Server</a>
+            <br/>
+            <a href="https://web.archive.org/web/20251227094228/https://www.reddit.com/r/mopeio/" target="_blank">Reddit</a>
+            <a href="https://web.archive.org/web/20251227094228/https://support.vexxusarts.com/submit-ticket/2-mopeio" target="_blank">Support</a>
+            <a href="updates.html" target="_blank">Changelog</a>
+            <a href="privacy/index.html" target="_blank">Privacy</a>
+            <a href="https://web.archive.org/web/20251227094228/https://mopeio.fandom.com/wiki/Home">Official Wiki</a>
+            <a id="moreGames" href="https://web.archive.org/web/20251227094228/https://wackagames.com/" target="_blank">More IO Games</a>
+        </div>
+        <div id="ytButton" style="margin-top: 20px;margin-bottom: 7px;text-align:center;transform:scale(1.2);">
+          <!-- 
+          <script src="https://apis.google.com/js/platform.js"></script> -->
+
+          <h2 style=" color:#f1c34c;margin-top: 10px;">Mistik</h2>
+          
+          <div class="g-ytsubscribe" data-channelid="UCwafGcuGGypkqpV7eZdmlSw" data-layout="default" data-theme="dark" data-count="default"></div>
+        </div>
+      </div>
+    </div>
+
+    <div id="startMenu">
+      <div id="mopeMenu" class="boxshadow">
+
+        <img id="logo" src="img/logo.png"/>
+        <div id="onconnectDiv" style="visibility:visible;">
+          <br/>
+          <select id="serverSelect">
+            <option>
+              Finding Server...
+            </option>
+          </select>
+
+          <div style="margin-top: 8px; font-size: 12px; color: #fff;">
+            <label for="difficultySelect">Difficulty:</label>
+            <select id="difficultySelect" style="margin-left: 6px; padding: 3px 6px; border-radius: 4px; background: #1a5e2a; color: #fff; border: 1px solid #3a9e4a; font-size: 12px; cursor: pointer;">
+              <option value="easy">Easy (10m)</option>
+              <option value="normal" selected>Normal (30m)</option>
+              <option value="medium">Medium (100m)</option>
+              <option value="hard">Hard (450m)</option>
+              <option value="harder">Harder (975m)</option>
+              <option value="impossible">Impossible (1.25b)</option>
+              <option value="mastery">Mastery (2.15b)</option>
+            </select>
+          </div>
+
+
+          <div id="onPlayReadyWrap">
+            <div class="optionsBtn">
+              <button id="settingsButton" class="button" type="submit" style="background-color:transparent; border-color:transparent;">
+                <img src="img/settings.png" width="30" height="30"/>
+              </button>
+
+
+            </div>
+
+
+            <div id="nickInputContainer" style="display: block;">
+              <input id="nickInput" autofocus placeholder="Your name" maxlength="15" style="width: 100%; height: 40px; line-height: 36px;">
+            </div>
+
+
+            <p id="serverResponse">
+            </p>
+            <div id="moneyRectWrap">
+              <div id="moneyRect">
+                <div id="mope-io_300x250">
+                </div>
+              </div>
+
+
+              <a>
+                <button id="startButton" class="startButton1">Play</button>
+              </a>
+            </div>
+
+            <div id="connecting">
+              <div class="connecting-inner">
+                <div id="conimgContainer">
+                  <img class="conimg" src="assets/s/1/skins/land/mouse/0/mouse.png" width="80px"/>
+                </div>
+                <p>Connecting...</p>
+                <p id="txtServer" style="font-size:14px;">
+
+                </p>
+              </div>
+            </div>
+
+
+          </div>
+          <div id="optionsDiv">
+            <button id="closeBut" type="submit" class="button" style="background-color:transparent; border-color:transparent;">
+              <img src="img/x.png" width="35" height="35"/>
+            </button>
+
+
+            <button id="button_mute" class="button" type="submit" style="background-color:transparent; border-color:transparent;">
+              <img id="button_mute_img" src="img/sound_on.png" width="30" height="30" title="Mute/unmute sounds"/>
+            </button>
+
+            <div id="options_graphicsButs">
+              <p>Graphics (Use Medium/Low if the game lags for you) </p>
+              <p id="graphics_fps">FPS: (...)</p>
+
+              <button id="graphicsBut_low">Low Graphics</button>
+              <button id="graphicsBut_med">Medium Graphics</button>
+              <button id="graphicsBut_hd">High Graphics</button>
+            </div>
+
+
+            <h3>Options:</h3>
+            <div id="optionsContainer">
+            </div>
+            <br/>
+            <a>
+              <button id="btnSpectate" style="display:block">Spectate</button>
+            </a>
+          </div>
+
+
+        </div>
+
+      </div>
+
+
+      <div class="footer">
+        <h2 class="announcement">ANNOUNCEMENT</h2>
+        <h4>Merry Christmas to everyone! Christmas mode has been enabled and new skins have been added to the shop!</h4>
+
+        <div class="button-container">
+          <a href="https://web.archive.org/web/20251227094228/https://discord.com/invite/nQAVB9c" class="join-button" target="_blank">
+            Join Discord
+          </a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+    <div id="rightSide">
+
+
+      <div id="loginDiv" class="boxshadow">
+        <!-- <p id="login_SBLabel" style="color: white;margin-bottom: 2px;margin-top: 0px;text-align: center;display:none;">
+          Testing Mode
+        </p> -->
+
+
+        <div id="notLoggedInDiv">
+
+          <div style="display:flex;flex-direction:column;gap:5px;padding:8px;background:#1a1a2e;border-radius:4px;">
+            <p style="color:#aaa;font-size:11px;margin:0 0 4px 0;text-align:center;">Log in or register with email</p>
+            <input type="email" id="authEmail" placeholder="Email" style="padding:5px;border-radius:3px;border:1px solid #555;background:#222;color:#fff;font-size:12px;box-sizing:border-box;width:100%;">
+            <input type="password" id="authPassword" placeholder="Password" style="padding:5px;border-radius:3px;border:1px solid #555;background:#222;color:#fff;font-size:12px;box-sizing:border-box;width:100%;">
+            <div style="display:flex;gap:6px;">
+              <button id="emailLoginBtn" style="flex:1;padding:6px;border-radius:3px;border:none;background:#4CAF50;color:#fff;font-weight:bold;cursor:pointer;font-size:12px;">LOGIN</button>
+              <button id="emailRegisterBtn" style="flex:1;padding:6px;border-radius:3px;border:none;background:#2196F3;color:#fff;font-weight:bold;cursor:pointer;font-size:12px;">REGISTER</button>
+            </div>
+            <p id="authMessage" style="color:#ff884c;font-size:10px;margin:2px 0 0 0;text-align:center;min-height:14px;"></p>
+          </div>
+
+          <div id="divButtons" style="display:none;">
+            <a>
+              <button id="shopbutton2" class="shopButton1">Shop</button>
+              <button id="btnLogin" class="btnLogin">LOGIN</button>
+            </a>
+          </div>
+          <script>
+            //start google signin code
+            //loadGoogleLoginStuff();
+          </script>
+        </div>
+        <div id="onloggedInDiv" style="display:none;">
+          <div>
+            <img id="loggedInUserImg" src=""/>
+            <p id="loggedInNameTxt">account name...</p>
+          </div>
+
+          <div id="login_coins" title="add more coins">
+            <img src="shop/mopecoin.png" class="buycoin-img">
+            <span id="loginCoins" class="coins">loading....</span>
+          </div>
+
+          <div id="login_gems" title="add more gems">
+            <img src="shop/gem.png" class="buycoin-img">
+            <span id="loginGems" class="gems">loading....</span>
+          </div>
+
+          <div id="divLogoutBtn2">
+            <!-- Dirty to have separate buttons -->
+            <button id="shopbutton3" class="shopButton1">Shop</button>
+            <button id="btnLogout2" class="btnLogout2">LOGOUT</button>
+          </div>
+        </div>
+      </div>
+      <div id="appsDiv"><a id="appAdIOS" href="https://web.archive.org/web/20251227094228/https://apps.apple.com/us/app/mope-io/id1086471119" target="_blank"><img src="img/appAd_ios.png" width="132" height="82" alt="GET THE IOS APP!"/></a><a id="appAdAndroid" href="https://web.archive.org/web/20251227094228/https://play.google.com/store/apps/details?id=com.StanTatarnykov.MopeioAndroid" target="_blank"><img src="img/appAd_and.png" width="132" height="52" alt="GET THE Android APP!"/></a></div>
+    </div>
+  </div>
+
+  </div>
+
+
+
+  <!-- adblock detect -->
+  <script src="dfp.js" type="text/javascript"></script>
+  <!-- curse adex (end marker) -->
+  <div id="cdm-zone-end"></div>
+
+
+  </div>
+
+
+
+</body>
+<script>
+  // Set WebSocket proxy host for Vercel deployment (must be before $config pre-definition)
+  window.__WS_PROXY_HOST = '3000-df6764b5-8a52-4e3b-9ab8-4792abe4d9be.orchids.cloud';
+  // Set WebSocket proxy host for Vercel deployment (must be before $config pre-definition)
+  window.__WS_PROXY_HOST = '3000-df6764b5-8a52-4e3b-9ab8-4792abe4d9be.orchids.cloud';
+  // Set WebSocket proxy host for Vercel deployment (must be before $config pre-definition)
+  window.__WS_PROXY_HOST = '3000-df6764b5-8a52-4e3b-9ab8-4792abe4d9be.orchids.cloud';
+  // Define $config with proxy URLs BEFORE client.js loads
+  // Make it read-only so client.js's $config={...} assignment is silently ignored.
+  (function() {
+    var wsHost = (typeof window.__WS_PROXY_HOST !== 'undefined') ? window.__WS_PROXY_HOST : window.location.host;
+    var difficulty = (function() { try { return localStorage.getItem('difficulty') || 'normal'; } catch(e) { return 'normal'; } })();
+    var difficultyParam = '?difficulty=' + encodeURIComponent(difficulty);
+    var config = {
+      gameVersion: 0x128,
+      isTestingMode: false,
+      env: 'production',
+      isBetaMode: false,
+      isProduction: true,
+      useDevAccountServer: false,
+      devAccountServerUrl: '',
+      turnstileKey: '0x4AAAAAAAxNgd99O5KdPkC7',
+      authentication: {
+        discord: '1282395552033669223',
+        facebook: '482002344741952',
+        google: '621635022753-n0ibkufm9ssukvk7c77rjv2ubn2abk80.apps.googleusercontent.com',
+        apple: 'io.mope.live.auth'
+      },
+      maxPlayers: 2000,
+      mapWidth: 4000,
+      mapHeight: 4000,
+      gameServers: [
+        {id:'prod-lnd-us-ny-1',name:'New York 1',url:wsHost+'/ws/8080'+difficultyParam,region:'New York, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-da-1',name:'Dallas 1',url:wsHost+'/ws/8081'+difficultyParam,region:'Dallas, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-la-1',name:'Los Angeles 1',url:wsHost+'/ws/8082'+difficultyParam,region:'Los Angeles, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-br-sp-1',name:'Sao Paulo 1',url:wsHost+'/ws/8083'+difficultyParam,region:'Sao Paulo, Brazil',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-de-ff-1',name:'Frankfurt 1',url:wsHost+'/ws/8084'+difficultyParam,region:'Frankfurt, Germany',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-fr-pr-1',name:'Paris 1',url:wsHost+'/ws/8085'+difficultyParam,region:'Paris, France',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-sw-sh-1',name:'Stockholm 1',url:wsHost+'/ws/8086'+difficultyParam,region:'Stockholm, Sweden',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-sg-sg-1',name:'Singapore 1',url:wsHost+'/ws/8087'+difficultyParam,region:'Singapore, Singapore',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-au-sd-1',name:'Sydney 1',url:wsHost+'/ws/8088'+difficultyParam,region:'Sydney, Australia',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-ch-1',name:'Chicago 1',url:wsHost+'/ws/8089'+difficultyParam,region:'Chicago, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-se-1',name:'Seattle 1',url:wsHost+'/ws/8090'+difficultyParam,region:'Seattle, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-nh-1',name:'New Hampshire 1',url:wsHost+'/ws/8091'+difficultyParam,region:'New Hampshire, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-mi-1',name:'Miami 1',url:wsHost+'/ws/8092'+difficultyParam,region:'Miami, USA',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-nl-am-1',name:'Amsterdam 1',url:wsHost+'/ws/8093'+difficultyParam,region:'Amsterdam, Netherlands',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-gb-ld-1',name:'London 1',url:wsHost+'/ws/8094'+difficultyParam,region:'London, UK',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-jp-tk-1',name:'Tokyo 1',url:wsHost+'/ws/8095'+difficultyParam,region:'Tokyo, Japan',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-is-1',name:'Iceland 1',url:wsHost+'/ws/8096'+difficultyParam,region:'Iceland',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-cn-1',name:'China 1',url:wsHost+'/ws/8097'+difficultyParam,region:'China',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-in-1',name:'India 1',url:wsHost+'/ws/8098'+difficultyParam,region:'India',gm:0,maxPlayers:2000}
+      ]
+    };
+    try {
+      Object.defineProperty(window, '$config', { value: config, writable: false, configurable: false, enumerable: true });
+    } catch(e) {
+      window.$config = config;
+    }
+  })();
+  // Global error handler to prevent crashes from causing blank page
+  window.onerror = function(msg, url, line, col, err) {
+    console.log('[Safe Guard] JS error caught:', msg, 'at', url, line, col);
+    return true;
+  };
+  window.addEventListener('unhandledrejection', function(e) {
+    console.log('[Safe Guard] Unhandled promise rejection:', e.reason);
+    e.preventDefault();
+  });
+  // Block Wayback Machine scripts from loading dynamically
+  (function() {
+    var _observer = new MutationObserver(function(mutations) {
+      for (var i = 0; i < mutations.length; i++) {
+        var nodes = mutations[i].addedNodes;
+        for (var j = 0; j < nodes.length; j++) {
+          if (nodes[j].tagName === 'SCRIPT' && nodes[j].src && nodes[j].src.indexOf('web.archive.org') !== -1) {
+            console.log('[Blocker] Removing Wayback Machine script:', nodes[j].src);
+            nodes[j].remove();
+          }
+        }
+      }
+    });
+    _observer.observe(document.head || document.documentElement, { childList: true, subtree: true });
+  })();
+  // Prevent redirects to about:blank or app store
+  try {
+    var _locProto = window.Location && window.Location.prototype;
+    if (!_locProto) { try { _locProto = Object.getPrototypeOf(window.location); } catch(e) {} }
+    if (_locProto) {
+      var _hrefDesc = Object.getOwnPropertyDescriptor(_locProto, 'href');
+      if (_hrefDesc && _hrefDesc.configurable) {
+        Object.defineProperty(_locProto, 'href', {
+          set: function(v) {
+            if (v && typeof v === 'string' && (v.indexOf('about:blank') !== -1 || v.indexOf('itunes.apple.com') !== -1 || v.indexOf('play.google.com') !== -1)) {
+              console.log('[Blocked redirect to]', v);
+              return;
+            }
+            return _hrefDesc.set.call(this, v);
+          },
+          get: function() { return _hrefDesc.get.call(this); },
+          configurable: true
+        });
+      }
+    }
+  } catch(e) { console.log('[RedirectBlocker] setup failed:', e); }
+  var _origUrl = window.location.href;
+  var _redirectWatch = setInterval(function() {
+    var cur = window.location.href;
+    if (cur !== _origUrl && (cur.indexOf('about:blank') !== -1 || cur.indexOf('itunes.apple.com') !== -1 || cur.indexOf('play.google.com') !== -1)) {
+      console.log('[RedirectBlocker] Detected redirect to', cur, '- going back');
+      window.location.replace(_origUrl);
+    }
+  }, 200);
+  setTimeout(function() { clearInterval(_redirectWatch); }, 30000);
+  // Load proxy-patcher first, then auth-override, then client.js
+  var proxyScript = document.createElement('script');
+  proxyScript.async = false;
+  proxyScript.src = 'proxy-patcher.js?v=' + (+new Date());
+  proxyScript.type = 'text/javascript';
+  proxyScript.onload = function() {
+    var authScript = document.createElement('script');
+    authScript.src = 'auth-override.js?v=' + (+new Date());
+    authScript.type = 'text/javascript';
+    authScript.onload = function() {
+      var script = document.createElement('script');
+      script.src = 'client.js?v=' + (+new Date());
+      script.type = 'text/javascript';
+      script.onload = function() {
+        var seasonalScript = document.createElement('script');
+        seasonalScript.src = 'seasonal-food-renderer.js?v=' + (+new Date());
+        seasonalScript.type = 'text/javascript';
+        document.head.appendChild(seasonalScript);
+      };
+      document.head.appendChild(script);
+    };
+    document.head.appendChild(authScript);
+  };
+  document.head.appendChild(proxyScript);
+<!-- copyright 2020 Shockwave LLC. You may use images/videos of mope.io commercially. All rights reserved. -->
+<script>
+  // Persist difficulty selection to localStorage
+  var diffSelect = document.getElementById('difficultySelect');
+  if (diffSelect) {
+    var saved = localStorage.getItem('difficulty') || 'normal';
+    diffSelect.value = saved;
+    diffSelect.addEventListener('change', function() {
+      localStorage.setItem('difficulty', this.value);
+    });
+  }
+</script>
+<!-- business contact at info@mope.io -->
+
+
+
+</html><!--
+     FILE ARCHIVED ON 09:42:28 Dec 27, 2025 AND RETRIEVED FROM THE
+     INTERNET ARCHIVE ON 19:43:07 Jul 17, 2026.
+     JAVASCRIPT APPENDED BY WAYBACK MACHINE, COPYRIGHT INTERNET ARCHIVE.
+
+     ALL OTHER CONTENT MAY ALSO BE PROTECTED BY COPYRIGHT (17 U.S.C.
+     SECTION 108(a)(3)).
+-->
+<!--
+playback timings (ms):
+  captures_list: 0.659
+  exclusion.robots: 0.041
+  exclusion.robots.policy: 0.031
+  esindex: 0.01
+  cdx.remote: 11.983
+  LoadShardBlock: 291.743 (6)
+  PetaboxLoader3.datanode: 226.904 (7)
+  PetaboxLoader3.resolve: 232.652 (5)
+  load_resource: 234.803
+-->
