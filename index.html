@@ -625,8 +625,6 @@
   // Make it read-only so client.js's $config={...} assignment is silently ignored.
   (function() {
     var wsHost = (typeof window.__WS_PROXY_HOST !== 'undefined') ? window.__WS_PROXY_HOST : window.location.host;
-    var difficulty = (function() { try { return localStorage.getItem('difficulty') || 'normal'; } catch(e) { return 'normal'; } })();
-    var difficultyParam = '?difficulty=' + encodeURIComponent(difficulty);
     var config = {
       gameVersion: 0x128,
       isTestingMode: false,
@@ -646,29 +644,29 @@
       mapWidth: 4000,
       mapHeight: 4000,
       gameServers: [
-        {id:'prod-lnd-us-ny-1',name:'New York 1',url:wsHost+'/ws/8080'+difficultyParam,region:'New York, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-da-1',name:'Dallas 1',url:wsHost+'/ws/8081'+difficultyParam,region:'Dallas, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-la-1',name:'Los Angeles 1',url:wsHost+'/ws/8082'+difficultyParam,region:'Los Angeles, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-br-sp-1',name:'Sao Paulo 1',url:wsHost+'/ws/8083'+difficultyParam,region:'Sao Paulo, Brazil',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-de-ff-1',name:'Frankfurt 1',url:wsHost+'/ws/8084'+difficultyParam,region:'Frankfurt, Germany',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-fr-pr-1',name:'Paris 1',url:wsHost+'/ws/8085'+difficultyParam,region:'Paris, France',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-sw-sh-1',name:'Stockholm 1',url:wsHost+'/ws/8086'+difficultyParam,region:'Stockholm, Sweden',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-sg-sg-1',name:'Singapore 1',url:wsHost+'/ws/8087'+difficultyParam,region:'Singapore, Singapore',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-au-sd-1',name:'Sydney 1',url:wsHost+'/ws/8088'+difficultyParam,region:'Sydney, Australia',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-ch-1',name:'Chicago 1',url:wsHost+'/ws/8089'+difficultyParam,region:'Chicago, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-se-1',name:'Seattle 1',url:wsHost+'/ws/8090'+difficultyParam,region:'Seattle, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-nh-1',name:'New Hampshire 1',url:wsHost+'/ws/8091'+difficultyParam,region:'New Hampshire, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-mi-1',name:'Miami 1',url:wsHost+'/ws/8092'+difficultyParam,region:'Miami, USA',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-nl-am-1',name:'Amsterdam 1',url:wsHost+'/ws/8093'+difficultyParam,region:'Amsterdam, Netherlands',gm:0,maxPlayers:2000},
-        {id:'prod-ovh-gb-ld-1',name:'London 1',url:wsHost+'/ws/8094'+difficultyParam,region:'London, UK',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-jp-tk-1',name:'Tokyo 1',url:wsHost+'/ws/8095'+difficultyParam,region:'Tokyo, Japan',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-is-1',name:'Iceland 1',url:wsHost+'/ws/8096'+difficultyParam,region:'Iceland',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-cn-1',name:'China 1',url:wsHost+'/ws/8097'+difficultyParam,region:'China',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-in-1',name:'India 1',url:wsHost+'/ws/8098'+difficultyParam,region:'India',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-sd-1',name:'San Diego 1',url:wsHost+'/ws/8099'+difficultyParam,region:'San Diego, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-sf-1',name:'San Francisco 1',url:wsHost+'/ws/8100'+difficultyParam,region:'San Francisco, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-va-1',name:'Virginia 1',url:wsHost+'/ws/8101'+difficultyParam,region:'Virginia, USA',gm:0,maxPlayers:2000},
-        {id:'prod-lnd-us-wv-1',name:'West Virginia 1',url:wsHost+'/ws/8102'+difficultyParam,region:'West Virginia, USA',gm:0,maxPlayers:2000}
+        {id:'prod-lnd-us-ny-1',name:'New York 1',url:wsHost+'/ws/8080',region:'New York, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-da-1',name:'Dallas 1',url:wsHost+'/ws/8081',region:'Dallas, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-la-1',name:'Los Angeles 1',url:wsHost+'/ws/8082',region:'Los Angeles, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-br-sp-1',name:'Sao Paulo 1',url:wsHost+'/ws/8083',region:'Sao Paulo, Brazil',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-de-ff-1',name:'Frankfurt 1',url:wsHost+'/ws/8084',region:'Frankfurt, Germany',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-fr-pr-1',name:'Paris 1',url:wsHost+'/ws/8085',region:'Paris, France',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-sw-sh-1',name:'Stockholm 1',url:wsHost+'/ws/8086',region:'Stockholm, Sweden',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-sg-sg-1',name:'Singapore 1',url:wsHost+'/ws/8087',region:'Singapore, Singapore',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-au-sd-1',name:'Sydney 1',url:wsHost+'/ws/8088',region:'Sydney, Australia',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-ch-1',name:'Chicago 1',url:wsHost+'/ws/8089',region:'Chicago, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-se-1',name:'Seattle 1',url:wsHost+'/ws/8090',region:'Seattle, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-nh-1',name:'New Hampshire 1',url:wsHost+'/ws/8091',region:'New Hampshire, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-mi-1',name:'Miami 1',url:wsHost+'/ws/8092',region:'Miami, USA',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-nl-am-1',name:'Amsterdam 1',url:wsHost+'/ws/8093',region:'Amsterdam, Netherlands',gm:0,maxPlayers:2000},
+        {id:'prod-ovh-gb-ld-1',name:'London 1',url:wsHost+'/ws/8094',region:'London, UK',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-jp-tk-1',name:'Tokyo 1',url:wsHost+'/ws/8095',region:'Tokyo, Japan',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-is-1',name:'Iceland 1',url:wsHost+'/ws/8096',region:'Iceland',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-cn-1',name:'China 1',url:wsHost+'/ws/8097',region:'China',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-in-1',name:'India 1',url:wsHost+'/ws/8098',region:'India',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-sd-1',name:'San Diego 1',url:wsHost+'/ws/8099',region:'San Diego, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-sf-1',name:'San Francisco 1',url:wsHost+'/ws/8100',region:'San Francisco, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-va-1',name:'Virginia 1',url:wsHost+'/ws/8101',region:'Virginia, USA',gm:0,maxPlayers:2000},
+        {id:'prod-lnd-us-wv-1',name:'West Virginia 1',url:wsHost+'/ws/8102',region:'West Virginia, USA',gm:0,maxPlayers:2000}
       ]
     };
     try {
